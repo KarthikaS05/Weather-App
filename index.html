@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>🌈Weather App</title>
+  </head>
+  <body>
+    <h1>
+      <span id="cityWeather"> ⛅ </span>
+      <br />
+      Currently <span id="temp">21</span>° in
+      <span id="city">Tokyo </span>
+    </h1>
+    <h2>13° / <strong>23°</strong></h2>
+    <ul>
+      <li>
+        <h3>🌧️Tomorrow</h3>
+        <p>10° / <strong>22°</strong></p>
+      </li>
+      <li>
+        <h3>⛅ Saturday</h3>
+        <p>15° / <strong>17°</strong></p>
+      </li>
+      <li>
+        <h3>☀️ Sunday</h3>
+        <p>25° / <strong>28°</strong></p>
+      </li>
+    </ul>
+
+    <button id="changeBtn" class="btn">Change city</button>
+    <p>Coded by Karthika Santhosh</p>
+
+    <!--JS script-->
+    <script>
+      city = () => {
+        let newCity = prompt("What is your city?");
+        newCity = newCity.trim();
+        let newTemp = prompt("What is the temperature?");
+        newTemp = newTemp.trim();
+
+        if (newCity.length > 0 && newTemp.length > 0) {
+          document.getElementById("city").innerText = newCity;
+          document.getElementById("temp").innerText = newTemp;
+          if (newTemp > 0) {
+            document.getElementById("cityWeather").innerText = "🌞";
+          } else {
+            document.getElementById("cityWeather").innerText = "🥶";
+          }
+        } else {
+          alert("Enter a valid city and temperature");
+        }
+      };
+
+      let btn = document.querySelector("#changeBtn");
+      btn.addEventListener("click", city);
+    </script>
+  </body>
+</html>
